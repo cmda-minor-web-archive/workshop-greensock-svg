@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Workshop Interactive SVG Animations With GreenSock</title>
+
+</head>
+<body>
+  <header>
+    <h1>Workshop Interactive SVG Animations With GreenSock<em> Minor Web Design & Development</em></h1>
+    
+  </header>
+  <main>
+    <section id="setup">
+      <h2>Step 1: Project setup <em>10 mins</em></h2>
+
+      <article>
+        <h3>Fork this GitHub repository</h3>
+
+        <p>In the root of this repo is a scaffolded project template with some basic setup. <br>Fork this repo and open the project in an editor of your choice.</p>
+
+        <footer>
+          <h4>Sources</h4>
+          <a href="https://docs.github.com/en/github/getting-started-with-github/quickstart/fork-a-repo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg>
+            Fork a repo
+          </a>
+        </footer>
+      </article>
+
+      <article>
+        <h3>Modules</h3>
+
+        <p>When building a complex interactive SVG animation eventually you will might end up with a substantially amount of code. Structuring your code can help you keeping things clear. In this project we will work with ES Modules. You need to run your code in a webserver for the modules to work! I use the http-server package for this, but you can use your own preferred webserver.</p>
+
+        <footer>
+          <h4>Sources</h4>
+          <a href="https://flaviocopes.com/es-modules/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg>
+            Introduction to ES Modules
+          </a>
+          <a href="https://github.com/http-party/http-server">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg> http-server: a command-line http server</a>
+
+        </footer>
+      </article>
+    </section>
+
+    <section id="svg">
+      <h2>Step 2: Preparing your SVG <em>20 mins</em></h2>
+      <article>
+        <h3>Add SVG code to html</h3>
+        <p>Open your SVG file in your text editor and copy / paste the code into the index.html file.</p>
+
+        <p>If you did not bring a SVG file. Pick an awesome free vector graphic (EPS) from <a href="https://www.freepik.com/ ">Freepik</a>. Open the EPS file in a vector programme like Illustrator and export it to SVG. Or draw your own vector graphic while you are at it!</p>
+
+        <p>Make sure the code is as clean as possible, and give a class or id attribute to the elements you want to animate</p>
+
+        <footer>
+          <h4>Bronnen</h4>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/SVG">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg>
+            SVG: Scalable Vector Graphics</a>
+          <a href="https://helpx.adobe.com/illustrator/how-to/export-svg.html">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg>
+            Export high-quality, optimized SVG
+          </a>
+          <a href="https://www.freepik.com/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg> Freepik</a>
+
+          <a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg> Understanding SVG Coordinate Systems </a>
+        </footer>
+      </article>
+
+      <article>
+        <h3>Storyboard</h3>
+        <p>Take some time to think about your animation. What story do you want to tell and what chapters are in there?</p>
+
+        <ul>
+          <li>Sketch a simple story board</li>
+          <li>Make a breakdown of the important 'actors'</li>
+        </ul>
+
+        <footer>
+          <h4>Sources</h4>
+          <a href="https://www.awn.com/animationworld/concept-creation-story-and-storyboards">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <polyline points="7 8 3 12 7 16" />
+              <polyline points="17 8 21 12 17 16" />
+              <line x1="14" y1="4" x2="10" y2="20" />
+            </svg>
+            Concept to Creation: Story and Storyboards
+          </a>
+        </footer>
+      </article>
+
+      <aside>
+        <h3>DEMO TIME</h3>
+        <p>About viewport, viewbox, shapes and properties.</p>
+      </aside>
+
+    </section>
+
+    <section id="greensock">
+        <h2>Step 3: Animating with GreenSock <em>60 mins</em></h2>
+
+        <article>
+          <h3>Tell the story with code</h3>
+          <ol>
+            <li>Make a chapter module for each chapters of your storyboard</li>
+            <li>Create a main timeline in each chapter module</li>
+            <li>Create timelines for every actor which has a role in the specific chapter module</li>
+            <li>Add the child timelines to the main timeline in order of appearance</li>
+            <li>Tween the (different parts of the) actors until you are done with the chapter</li>
+            <li>Add some buttons for controlling which chapter play when.</li>
+          </ol>
+          
+          <footer>
+            <h4>Bronnen</h4>
+  
+            <a href="https://codepen.io/joostf/pen/Ldyxee">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <polyline points="7 8 3 12 7 16" />
+                <polyline points="17 8 21 12 17 16" />
+                <line x1="14" y1="4" x2="10" y2="20" />
+              </svg>
+              GreenSock - Timeline example
+            </a>
+
+            <a href="https://www.youtube.com/watch?v=SOp0e4tkXjI&t=1086s">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <polyline points="7 8 3 12 7 16" />
+                <polyline points="17 8 21 12 17 16" />
+                <line x1="14" y1="4" x2="10" y2="20" />
+              </svg>
+              Interactive SVG Animations Using Greensock (with Cassie Evans)
+            </a>
+            <a href="https://www.youtube.com/watch?v=YcM4bRxtLcs&t=215s">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <polyline points="7 8 3 12 7 16" />
+                <polyline points="17 8 21 12 17 16" />
+                <line x1="14" y1="4" x2="10" y2="20" />
+              </svg> Trick or treat: Interactive SVG Animation with Greensock (youtube)</a>
+            <a href="https://codepen.io/issey/full/qazVwX/">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <polyline points="7 8 3 12 7 16" />
+                <polyline points="17 8 21 12 17 16" />
+                <line x1="14" y1="4" x2="10" y2="20" />
+              </svg>
+              Trick or treat: Interactive SVG Animation with Greensock (codepen)</a>
+          </footer>
+        </article>
+
+        <aside>
+
+          <h3>DEMO TIME</h3>
+          <p>Tweens, (nested) timelines, position parameter, properties, stagger, easing & callbacks </p>
+  
+        </aside>
+
+    </section>
+  </main>
+
+  <aside>
+    <h3>Greensock Cheat Sheet</h3>
+    <img src="img/gsap-cheatsheet.png" alt=""GreenSock Cheatsheet>
+    
+  </aside>
+
+  <footer>
+    MIT © CMD Amsterdam, docs and images are CC-BY-4.0.
+ </footer>
+</body>
+</html>
+
